@@ -101,6 +101,8 @@ section{padding-block:64px}
 .chip{font-family:var(--body);font-size:14px;padding:7px 14px;border-radius:99px;border:1px solid var(--line);background:var(--card);color:var(--fg);cursor:pointer}
 .chip[aria-pressed=true]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
 .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.sh.sub{margin:56px 0 22px}.sh.sub h3{font-size:clamp(24px,3vw,32px);font-weight:800}
+@media(min-width:1000px){.wgrid.egrid{grid-template-columns:repeat(2,1fr)}.wgrid.egrid .card h3{font-size:22px}}
 @media(max-width:760px){.grid{grid-template-columns:1fr}}
 .card{text-decoration:none;background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;text-align:left;padding:0;color:inherit;font:inherit;cursor:pointer;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s,border-color .25s;will-change:transform}
 .card:hover{box-shadow:0 22px 44px -22px rgba(13,20,36,.5);border-color:var(--accent)}
@@ -191,7 +193,7 @@ dialog li{margin-bottom:4px}
 <div class="wrap">
 <header class="hero">
   <div>
-    <div class="lab">Content designer · Cairo · العربية / English</div>
+    <div class="lab">Content designer · Cairo · <span lang="ar" dir="rtl">العربية</span> / English</div>
     <h1 class="nm">Laila<br>Ragheb</h1>
     <div class="nmar ar" lang="ar">ليلى راغب</div>
     <p class="tag">I make products sound human, in <em class="swap" id="swap">English</em>.</p>
@@ -209,6 +211,7 @@ dialog li{margin-bottom:4px}
   <div class="about rv">
     <div>
       <p>I'm a bilingual UX writer and content designer in Cairo. I started writing professionally in 2023, first for AI products. For the past two years I've been building content at a digital bank in Egypt: UX copy for 20+ user journeys, a bilingual content design system, a knowledge base of 350+ tutorials, and tools that remove the repetitive parts of content work.</p>
+      <p>I also teach and hand over what I build: I onboarded a design team on the content system, trained a customer support team on the knowledge base and handed it to a junior writer, and presented Arabic voice options to a CEO.</p>
       <p>Before writing, I spent almost two years in technical support at a software company. It's why I care about clear steps, honest error messages and the questions customers actually ask.</p>
       <div class="avail">Open to senior content designer and senior UX writer roles, remote or in Cairo and the Gulf, and to freelance copywriting.</div>
     </div>
@@ -218,12 +221,6 @@ dialog li{margin-bottom:4px}
       <div><h4>Languages</h4><div class="skills"><span>Arabic (native)</span><span>English (fluent)</span></div></div>
     </div>
   </div>
-</section>
-
-<section id="work">
-  <div class="sh"><h2 class="rv">Selected work</h2>
-  <div class="chips" id="chips" role="group" aria-label="Filter by skill"></div></div>
-  <div class="grid" id="grid"></div>
 </section>
 
 <section id="decisions">
@@ -237,6 +234,18 @@ dialog li{margin-bottom:4px}
   </a>
 </section>
 
+<section id="work">
+  <div class="sh"><h2 class="rv">Selected work</h2><span class="lab">Deep dives</span></div>
+  <div class="grid" id="grid"></div>
+
+  <div class="sh sub"><h3 class="rv">Quick projects</h3><span class="lab">Smaller, faster</span></div>
+  <div class="wgrid" id="qgrid"></div>
+
+  <div class="sh sub" id="exercises"><h3 class="rv">Exercises</h3><span class="lab">Take-home assignments</span></div>
+  <p class="wsub">Take-home assignments from hiring processes. The companies are not named.</p>
+  <div class="wgrid egrid" id="egrid"></div>
+</section>
+
 <section id="voice">
   <div class="dial rv">
     <div class="lab">Interactive · Arabic range</div>
@@ -248,7 +257,7 @@ dialog li{margin-bottom:4px}
         <div class="ticks"><span data-v="0">Formal · MSA</span><span data-v="1">Moderate Egyptian</span><span data-v="2">Full Egyptian</span></div>
         
       </div>
-      <div class="bubble"><div class="ar" id="dtx">تم تحويل المبلغ بنجاح للمستفيد. تقدر تشوف تفاصيل العملية من سجل المعاملات في أي وقت.</div><small id="dnote">Moderate Egyptian: warm and clear, still professional.</small></div>
+      <div class="bubble"><div class="ar" id="dtx" lang="ar">تم تحويل المبلغ بنجاح للمستفيد. تقدر تشوف تفاصيل العملية من سجل المعاملات في أي وقت.</div><small id="dnote">Moderate Egyptian: warm and clear, still professional.</small></div>
     </div>
   </div>
 </section>
@@ -281,31 +290,28 @@ dialog li{margin-bottom:4px}
 document.documentElement.classList.add('js');
 var IMG={"ws3": "img/03936d914c.jpg", "nabra": "img/e776081f13.jpg", "keysync": "img/a96bf41ff8.jpg", "wallet": "img/15c033d8ad.jpg", "gov": "img/c1f6291b1a.jpg", "loc": "img/d61b04a6ee.jpg", "mm": "img/9269569eef.jpg", "kb": "img/ab9306777e.jpg", "ds": "img/e201314d49.jpg", "voice": "img/2bd25cfb77.jpg", "ws1": "img/8d9b12b9d2.jpg", "ws2": "img/bc7b5f5f2d.jpg", "n1": "img/01991df749.jpg", "n2": "img/64bd5e6a06.jpg", "n3": "img/87374932ae.jpg", "n4": "img/7f0b8a0db3.jpg"};
 var W=[
-{id:'mm',img:'mm',o:'Writing for a live app (50K+ downloads)',t:'Making Everyday Budgeting Easier Through Content Design',d:'Ongoing freelance work: voice guidelines, a glossary and copy for the main flows of a budgeting app that is live on Android.',tags:['UX writing','Content design','Localization'],feat:1,
+{id:'mm',grp:'main',img:'mm',o:'Writing for a live app (50K+ downloads)',t:'Making Everyday Budgeting Easier Through Content Design',d:'Ongoing freelance work: voice guidelines, a glossary and copy for the main flows of a budgeting app that is live on Android.',tags:['UX writing','Content design','Localization'],feat:1,
  ctx:'Since April I’ve written the content guidelines, glossary and product flows in English and Arabic.',
  pts:['Flows: homepage, budgets, transactions, offers, push notifications, profile, subscription.','Voice rule: Official (MSA) vs Social (white Ammiya).','Budget pills: Under / Near / Over = تمام / قرّبت / عدّيت.'],links:[['MoneyMore site','https://money-more.app/'],['Google Play','https://play.google.com/store/apps/details?id=com.mondia.moneymore']]},
-{id:'nabra',img:'nabra',o:'Working prototype, tested on 50+ strings',t:'Nabra: An AI Tonality Checker for English and Arabic Content',d:'A tool that scores whether copy sounds like the brand, in both languages.',tags:['AI & vibe coding','Content design'],
+{id:'nabra',grp:'main',img:'nabra',o:'Working prototype, tested on 50+ strings',t:'Nabra: An AI Tonality Checker for English and Arabic Content',d:'A tool that scores whether copy sounds like the brand, in both languages.',tags:['AI & vibe coding','Content design'],
  ctx:'Brand-voice reviews were slow and subjective. I built a prototype with Claude Code that checks EN/AR strings against a brand’s guidelines.',
  pts:['Inputs: a Lokalise export (.xlsx, 6,365 keys), the guidelines and a list of avoided terms.','Outputs: readability (Hemingway-style metrics, Flesch–Kincaid), a 0–100 tonality score, flagged terms and rewrite suggestions.','Example: “send money” → “Send money”; “إرسال نقود” (score 58) → “حوّل فلوس” / “ابعت فلوس”.','Tested on 50+ strings. Now pitching the AI team on hosting and token usage.'],shots:['n1','n2','n3','n4']},
-{id:'ds',img:'ds',o:'Used to onboard new writers',t:'Building a Digital Bank’s Content Design System',d:'One source of truth for English and Arabic content, in three weeks.',tags:['Content design','Content strategy','Localization'],
+{id:'ds',grp:'main',img:'ds',o:'Used to onboard new writers',t:'Building a Digital Bank’s Content Design System',d:'One source of truth for English and Arabic content, including the Arabic voice the CEO chose.',tags:['Content design','Content strategy','Localization'],
  ctx:'Built with a design system specialist over three weeks, for a digital bank.',
- pts:['Four pieces: foundations with Arabic tonality, content lifecycle, governance (including a change-request rule with CDO approval) and component rules.','Team onboarded; used to onboard new writers; being shared with marketing and commercial teams.']},
-{id:'voice',img:'voice',o:'Chosen by the CEO',t:'Choosing an Arabic Voice for a Digital Bank',d:'A 7-brand benchmark that ended with a clear stakeholder decision.',tags:['Content strategy'],
- ctx:'I benchmarked seven brands across five dimensions (formality, dialect, simplicity, warmth and actionability), then showed three registers on a transfer message and four screens.',
- pts:['Registers compared: MSA, moderate Egyptian, full Egyptian.','Presented to the CEO and stakeholders; moderate Egyptian was the clear winner.','It became the foundation of the content design system.']},
-{id:'kb',img:'kb',o:'350+ tutorials, handed over to the team',t:'Turning Support Documentation Into Guided Customer Experiences',d:'A knowledge base built from scratch: 350+ tutorials in English and Arabic.',tags:['Content strategy'],
+ pts:['The Arabic voice: a seven-brand benchmark and a three-register test, decided by the CEO.','Four pieces: foundations with Arabic tonality, content lifecycle, governance (including a change-request rule with CDO approval) and component rules.','Team onboarded; used to onboard new writers; being shared with marketing and commercial teams.']},
+{id:'kb',grp:'quick',img:'kb',o:'350+ tutorials, handed over to the team',t:'Turning Support Documentation Into Guided Customer Experiences',d:'A knowledge base built from scratch: 350+ tutorials in English and Arabic.',tags:['Content strategy'],
  ctx:'For a digital bank’s app, I designed the information architecture and wrote the tutorials as guided journeys.',
  pts:['Journeys organized into happy-path and negative-scenario groups.','Authored in Arcade with interactive hotspots; 350+ tutorials in EN and AR.','Wrote the training; handover in progress.']},
-{id:'gov',img:'gov',o:'Six tonality principles and a full style guide',t:'Expanding a Government Services App Into a Lifestyle Experience',d:'More human. Still trusted. A take-home that impressed the hiring team.',tags:['UX writing','Content strategy'],
+{id:'gov',grp:'ex',img:'gov',o:'Six tonality principles and a full style guide',t:'Expanding a Government Services App Into a Lifestyle Experience',d:'More human. Still trusted. A take-home exercise on sounding human without losing trust.',tags:['UX writing','Content strategy'],
  ctx:'A content design exercise for a government services app: how to sound human without losing trust.',
  pts:['Six tonality pillars: Human, Helpful, Proactive, Relevant, Discoverable, Trustworthy.','Email, push, forms, widgets, onboarding and a style guide.','Includes before-and-after rewrites and the assumptions I made.']},
-{id:'wallet',img:'wallet',o:'Bilingual content for three investment products',t:'Evolving a Wallet’s Content for an Investment Product',d:'Bilingual content for saving goals, gold and stocks.',tags:['UX writing','Content strategy'],
+{id:'wallet',grp:'ex',img:'wallet',o:'Content for saving goals, gold and stocks, with risk warnings at the decision moment',t:'Evolving a Wallet’s Content for an Investment Product',d:'Content principles, bilingual copy for three products, and three hard account messages rewritten.',tags:['UX writing','Content strategy'],
  ctx:'A take-home: extend a wallet’s voice to investing.',
  pts:['Four content principles.','Three hard messages rewritten in English and Arabic.']},
-{id:'keysync',img:'keysync',o:'Live and free on Figma Community',t:'KeySync: Moving Translation Keys Between Lokalise and Figma',d:'A Figma plugin that can save up to 16 hours per journey.',tags:['AI & vibe coding','Localization'],
+{id:'keysync',grp:'quick',img:'keysync',o:'Live and free on Figma Community',t:'KeySync: Closing the Gap Between Figma and Localization Workflows',d:'A Figma plugin that can save up to 16 hours per journey.',tags:['AI & vibe coding','Localization'],
  ctx:'Import, Export and Extract tabs sync Lokalise .xlsx files with Figma variables.',
  pts:['Key naming: JourneyName_TextInCamelCase_ComponentType.','Up to 16 hours saved per journey (my estimate).','Free on Figma Community.']},
-{id:'loc',img:'loc',o:'22 screens in 3 days, praised handoff',t:'Localizing 22 Payments Website Screens Into Arabic in 3 Days',d:'Figma, an AI agent for text extraction, and an MSA handoff table.',tags:['Localization'],
+{id:'loc',grp:'quick',img:'loc',o:'22 screens in 3 days, praised handoff',t:'Localizing 22 Payments Website Screens Into Arabic in 3 Days',d:'Figma, an AI agent for text extraction, and an MSA handoff table.',tags:['Localization'],
  ctx:'Freelance project for a payments company.',
  pts:['22 screens, 3 days.','Text nodes extracted from Figma with an AI agent.','MSA translation delivered as a handoff table.']}
 ];
@@ -315,16 +321,15 @@ var WS=[
 {id:'campus',img:'ws3',feat:1,t:'Manual monitoring systems: How they threaten campus safety and how AI can help.',d:"Why watching footage by hand isn't enough."}];
 var g=document.getElementById('grid'),dlg=document.getElementById('dlg'),db=document.getElementById('dbody');
 function el(h){var d=document.createElement('div');d.innerHTML=h;return d.firstElementChild}
-W.forEach(function(w){var c=el('<a class="card rv'+(w.feat?' feat':'')+'" href="cs-'+w.id+'.html" data-t="'+w.tags.join('|')+'"><div class="im"><img src="'+IMG[w.img]+'" alt="'+w.t+' cover" loading="lazy"></div><div class="tx"><h3>'+w.t+'</h3><p>'+w.d+'</p><div class="oc">'+w.o+'</div><div class="tags">'+w.tags.map(function(t){return'<i>'+t+'</i>'}).join('')+'</div></div></a>');g.appendChild(c)});
+function card(w,big){return el('<a class="card rv'+(big&&w.feat?' feat':'')+'" href="cs-'+w.id+'.html"><div class="im"><img src="'+IMG[w.img]+'" alt="Cover image for '+w.t.replace(/"/g,'&quot;')+'" loading="lazy"></div><div class="tx"><h3>'+w.t+'</h3><p>'+w.d+'</p><div class="oc">'+w.o+'</div>'+(big?'<div class="tags">'+w.tags.map(function(t){return'<i>'+t+'</i>'}).join('')+'</div>':'')+'</div></a>')}
+var G={main:g,quick:document.getElementById('qgrid'),ex:document.getElementById('egrid')};
+W.forEach(function(w){G[w.grp].appendChild(card(w,w.grp==='main'))});
 function open(w){db.innerHTML='<div class="hd"><img src="'+IMG[w.img]+'" alt=""></div><div class="bd"><h3>'+w.t+'</h3><p>'+w.ctx+'</p><div><h4>Highlights</h4><ul>'+w.pts.map(function(p){return'<li>'+p+'</li>'}).join('')+'</ul></div>'+(w.shots?'<div class="shots">'+w.shots.map(function(s){return'<img src="'+IMG[s]+'" alt="Nabra screenshot">'}).join('')+'</div>':'')+(w.links?'<div class="ext">'+w.links.map(function(l){return'<a class="btn" target="_blank" rel="noopener" href="'+l[1]+'">'+l[0]+' ↗</a>'}).join('')+'</div>':'')+'<p class="lab">Full case study available on request.</p></div>';
  if(dlg.showModal)dlg.showModal();else dlg.setAttribute('open','')}
 document.getElementById('dx').onclick=function(){dlg.close()};
 dlg.addEventListener('click',function(e){if(e.target===dlg)dlg.close()});
 var wg=document.getElementById('wgrid');
 WS.forEach(function(w){wg.appendChild(el('<a class="card rv'+(w.feat?' feat':'')+'" href="ws-'+w.id+'.html"><div class="im"><img src="'+IMG[w.img]+'" alt="" loading="lazy"></div><div class="tx"><h3>'+w.t+'</h3><p>'+w.d+'</p></div></div>'.replace('</div></div>','</div></a>')))});
-/* filters */
-var all=['All'].concat(['UX writing','Content design','Content strategy','Localization','AI & vibe coding']),cs=document.getElementById('chips');
-all.forEach(function(t,i){var b=el('<button class="chip" aria-pressed="'+(i==0)+'">'+t+'</button>');b.onclick=function(){[].forEach.call(cs.children,function(x){x.setAttribute('aria-pressed','false')});b.setAttribute('aria-pressed','true');[].forEach.call(g.children,function(c){c.classList.toggle('hide',t!='All'&&c.dataset.t.split('|').indexOf(t)<0)})};cs.appendChild(b)});
 /* reveal */
 var rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
 var io='IntersectionObserver' in window?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);if(e.target.classList.contains('stats'))count()}})},{threshold:.12}):null;
@@ -337,7 +342,7 @@ if(!rm&&matchMedia('(hover:hover)').matches)g.addEventListener('pointermove',fun
 g.addEventListener('pointerout',function(e){var c=e.target.closest('.card');if(c)c.style.transform=''});
 /* swap word */
 var words=['English','العربية'],wi=0,sw=document.getElementById('swap');
-if(!rm)setInterval(function(){wi=1-wi;sw.style.opacity=0;setTimeout(function(){sw.textContent=words[wi];sw.className='swap'+(wi?' ar':'');sw.style.opacity=1},250)},2600);
+if(!rm)setInterval(function(){wi=1-wi;sw.style.opacity=0;setTimeout(function(){sw.textContent=words[wi];sw.className='swap'+(wi?' ar':'');sw.lang=wi?'ar':'en';sw.style.opacity=1},250)},2600);
 sw.style.transition='opacity .25s';
 /* dial */
 var R=[['تم تحويل المبلغ إلى المستفيد بنجاح. يمكنك الاطلاع على تفاصيل العملية من سجل المعاملات في أي وقت.','Modern Standard Arabic: formal, precise, authoritative.'],['تم تحويل المبلغ بنجاح للمستفيد. تقدر تشوف تفاصيل العملية من سجل المعاملات في أي وقت.','Moderate Egyptian: warm and clear, still professional.'],['حولنالك المبلغ بنجاح. تقدر تشوف كل التفاصيل في سجل المعاملات وقت ما تحب.','Full Egyptian: casual, friendly, conversational.']];
