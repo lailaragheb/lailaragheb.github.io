@@ -155,6 +155,8 @@ section{padding-block:64px}
 .sp p{margin:0;font-size:16px;line-height:1.6;overflow-wrap:anywhere}
 .cmp{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 @media(max-width:760px){.cmp{grid-template-columns:1fr}}
+.cmp.three{grid-template-columns:repeat(3,1fr)}
+@media(max-width:980px){.cmp.three{grid-template-columns:1fr}}
 .cmp>div{border:1px solid var(--line);background:var(--bg);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:12px;min-width:0}
 .cmp .tg{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
 .cmp .tg b{color:var(--accent);font-weight:500}
@@ -246,16 +248,16 @@ dialog li{margin-bottom:4px}
     <h3>A fraud warning that still sounds like the bank</h3>
     <div class="sp">
       <div><h4>The constraint</h4><p>Legal and compliance wrote the wording for the card-purchase OTP SMS and said the regulator would not accept anything looser. It read like a regulation and sounded nothing like the app's Arabic voice.</p></div>
-      <div><h4>What I did</h4><p>A customer used to one tone in the app could suddenly get a stiff message in another, in a message whose job is to warn about fraud. That could itself look like phishing. My first rewrite was rejected, so I stopped arguing tone against compliance and asked which words could not change. They named two phrases. I kept both and rewrote everything around them in the app's voice.</p></div>
+      <div><h4>What I did</h4><p>A customer used to one tone in the app could suddenly get a stiff message in another, in a message whose job is to warn about fraud. That could itself look like phishing. My first rewrite was rejected: they said banks do not word this message that way and the central bank would not accept it. So I stopped arguing tone against compliance and asked which words could not change. They named two phrases. I kept both and rewrote everything around them in the app's voice.</p></div>
       <div><h4>What changed</h4><p>The approved SMS keeps the required wording, sounds like the bank, and now also says the day and time of the purchase.</p></div>
     </div>
-    <div class="cmp">
+    <div class="cmp three">
       <div><div class="tg"><b>Legal's original</b></div>
-        <p class="ar" dir="rtl" lang="ar"><mark>تتم الآن</mark> عملية شراء عند (اسم التاجر) بمبلغ () (عملة) باستخدام كارتك المنتهي بـ ()، إذا طلب منك أي شخص مشاركة الكود، <mark>فهي محاولة احتيال</mark> يرجى عدم الاستمرار والإبلاغ عن هذه المحاولة فورًا. الرقم السري المتغير هو () وصالح لمدة (وقت).</p>
-        <p class="en">A purchase is now being made at (merchant name) for (amount) (currency) using your card ending in (). If anyone asks you to share the code, it is a fraud attempt. Please do not continue and report this attempt immediately. The one-time password is () and is valid for (time).</p></div>
+        <p class="ar" dir="rtl" lang="ar"><mark>تتم الآن</mark> عملية شراء عند (اسم التاجر) بمبلغ () (عملة) باستخدام كارتك المنتهي بـ ()، إذا طلب منك أي شخص مشاركة الكود، <mark>فهي محاولة احتيال</mark> يرجى عدم الاستمرار والإبلاغ عن هذه المحاولة فورًا. الرقم السري المتغير هو () وصالح لمدة (وقت).</p></div>
+      <div><div class="tg"><b>My first rewrite</b> (rejected)</div>
+        <p class="ar" dir="rtl" lang="ar">في عملية شراء بتتم دلوقتي عند (اسم التاجر) بمبلغ () (عملة) بكارتك اللي آخره (). لو حد طلب منك الكود ده، دي محاولة نصب، ما تكملش العملية وبلّغ فورًا. الرقم السري المتغير (OTP) هو () وصالح لمدة (وقت).</p></div>
       <div><div class="tg"><b>The approved version</b></div>
-        <p class="ar" dir="rtl" lang="ar"><mark>تتم الآن</mark> عملية شراء عند (اسم التاجر) بمبلغ () (عملة) بكارتك المنتهي بـ () يوم (يوم) الساعة (ساعة). لو أي شخص طلب منك الكود، <mark>فهي محاولة احتيال</mark> ولازم تبلّغ فورًا. الرقم السري المتغير OTP: () صالح لمدة ().</p>
-        <p class="en">A purchase is now being made at (merchant name) for (amount) (currency) with your card ending in () on (day) at (time). If anyone asks you for the code, it's a fraud attempt, and you need to report it right away. OTP: () valid for ().</p></div>
+        <p class="ar" dir="rtl" lang="ar"><mark>تتم الآن</mark> عملية شراء عند (اسم التاجر) بمبلغ () (عملة) بكارتك المنتهي بـ () يوم (يوم) الساعة (ساعة). لو أي شخص طلب منك الكود، <mark>فهي محاولة احتيال</mark> ولازم تبلّغ فورًا. الرقم السري المتغير OTP: () صالح لمدة ().</p></div>
     </div>
     <p class="key"><mark>Highlighted</mark> = the wording compliance said had to stay.</p>
   </article>
