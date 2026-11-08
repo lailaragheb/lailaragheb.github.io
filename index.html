@@ -145,6 +145,29 @@ section{padding-block:64px}
 .about p{margin:0 0 14px;font-size:18px}
 .skills{display:flex;flex-wrap:wrap;gap:8px;align-content:flex-start}
 .skills span{border:1px solid var(--line);background:var(--card);padding:6px 12px;border-radius:12px;font-size:14px}.sk{display:flex;flex-direction:column;gap:22px;min-width:0}.sk h4{margin:0 0 10px;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;color:var(--mute)}.avail{display:flex;gap:12px;align-items:flex-start;border:1.5px solid var(--accent);border-radius:16px;padding:14px 18px;margin-top:22px;font-weight:700;font-size:17px;line-height:1.45;background:var(--card)}.avail:before{content:"";flex:none;width:10px;height:10px;border-radius:50%;background:var(--hot);margin-top:8px}.edu{font-size:14px;color:var(--mute);margin:0}.wsub{max-width:46em;color:var(--mute);margin:-8px 0 26px;font-size:17px}.cav{margin:14px 0 0;font-size:clamp(17px,2vw,20px);opacity:.92;max-width:34em}
+/* decisions */
+.story{border:1px solid var(--line);background:var(--card);border-radius:22px;padding:clamp(20px,4vw,38px);margin:0 0 26px}
+.story .no{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+.story h3{font-size:clamp(24px,3.4vw,34px);font-weight:800;margin:6px 0 20px}
+.sp{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin:0 0 26px}
+@media(max-width:860px){.sp{grid-template-columns:1fr;gap:16px}}
+.sp h4{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:0 0 6px;font-weight:500}
+.sp p{margin:0;font-size:16px;line-height:1.6;overflow-wrap:anywhere}
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:760px){.cmp{grid-template-columns:1fr}}
+.cmp>div{border:1px solid var(--line);background:var(--bg);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.cmp .tg{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.cmp .tg b{color:var(--accent);font-weight:500}
+.cmp .ar{font-size:clamp(17px,2vw,20px);line-height:1.9;margin:0}
+.cmp .en{font-size:14px;color:var(--mute);line-height:1.55;margin:0;border-top:1px dashed var(--line);padding-top:10px}
+.cmp mark{background:var(--soft);color:inherit;border-radius:6px;padding:0 4px}
+.key{font-size:14px;color:var(--mute);margin:14px 0 0}.key mark{background:var(--soft);color:inherit;border-radius:6px;padding:0 6px}
+.strip{display:flex;gap:16px;overflow-x:auto;padding:4px 2px 14px;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}
+.strip figure{margin:0;flex:0 0 200px;scroll-snap-align:start;display:flex;flex-direction:column;gap:8px}
+.strip img{width:100%;border-radius:14px;border:1px solid var(--line);background:#fff;display:block}
+.strip figcaption{font-family:var(--mono);font-size:12px;color:var(--mute);line-height:1.4}
+.strip .gap{flex:0 0 1px;background:var(--line);margin:0 6px;align-self:stretch}
+.sg{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);margin:0 0 8px}
 /* contact */
 .contact{background:var(--accent);color:var(--accent-fg);border-radius:26px;padding:clamp(28px,6vw,72px);--l:var(--accent-fg)}
 .contact h2{font-size:clamp(38px,7vw,88px);font-weight:800}
@@ -174,7 +197,7 @@ dialog li{margin-bottom:4px}
 </style>
 </head><body>
 
-<nav><div class="in"><div class="lk"><a href="#about">About</a><a href="#work">Work</a><a href="#voice">Arabic voice</a><a href="#writing">Writing</a><a href="#contact">Contact</a></div><button class="tbtn" id="theme" aria-label="Toggle theme">◐</button></div></nav>
+<nav><div class="in"><div class="lk"><a href="#about">About</a><a href="#work">Work</a><a href="#decisions">Decisions</a><a href="#voice">Arabic voice</a><a href="#writing">Writing</a><a href="#contact">Contact</a></div><button class="tbtn" id="theme" aria-label="Toggle theme">◐</button></div></nav>
 
 <div class="wrap">
 <header class="hero">
@@ -212,6 +235,42 @@ dialog li{margin-bottom:4px}
   <div class="sh"><h2 class="rv">Selected work</h2>
   <div class="chips" id="chips" role="group" aria-label="Filter by skill"></div></div>
   <div class="grid" id="grid"></div>
+</section>
+
+<section id="decisions">
+  <div class="sh"><h2 class="rv">Where content changed the decision</h2><span class="lab">Constraints · Pushback</span></div>
+  <p class="wsub">Two moments where I worked around a regulation, and where I pushed back on a design. Client names withheld.</p>
+
+  <article class="story rv">
+    <div class="no">Story 01 · Working within compliance</div>
+    <h3>A fraud warning that still sounds like the bank</h3>
+    <div class="sp">
+      <div><h4>The constraint</h4><p>Legal and compliance wrote the wording for the card-purchase OTP SMS and said the regulator would not accept anything looser. It read like a regulation and sounded nothing like the app's Arabic voice.</p></div>
+      <div><h4>What I did</h4><p>A customer used to one tone in the app could suddenly get a stiff message in another, in a message whose job is to warn about fraud. That could itself look like phishing. My first rewrite was rejected, so I stopped arguing tone against compliance and asked which words could not change. They named two phrases. I kept both and rewrote everything around them in the app's voice.</p></div>
+      <div><h4>What changed</h4><p>The approved SMS keeps the required wording, sounds like the bank, and now also says the day and time of the purchase.</p></div>
+    </div>
+    <div class="cmp">
+      <div><div class="tg"><b>Legal's original</b></div>
+        <p class="ar" dir="rtl" lang="ar"><mark>تتم الآن</mark> عملية شراء عند (اسم التاجر) بمبلغ () (عملة) باستخدام كارتك المنتهي بـ ()، إذا طلب منك أي شخص مشاركة الكود، <mark>فهي محاولة احتيال</mark> يرجى عدم الاستمرار والإبلاغ عن هذه المحاولة فورًا. الرقم السري المتغير هو () وصالح لمدة (وقت).</p>
+        <p class="en">A purchase is now being made at (merchant name) for (amount) (currency) using your card ending in (). If anyone asks you to share the code, it is a fraud attempt. Please do not continue and report this attempt immediately. The one-time password is () and is valid for (time).</p></div>
+      <div><div class="tg"><b>The approved version</b></div>
+        <p class="ar" dir="rtl" lang="ar"><mark>تتم الآن</mark> عملية شراء عند (اسم التاجر) بمبلغ () (عملة) بكارتك المنتهي بـ () يوم (يوم) الساعة (ساعة). لو أي شخص طلب منك الكود، <mark>فهي محاولة احتيال</mark> ولازم تبلّغ فورًا. الرقم السري المتغير OTP: () صالح لمدة ().</p>
+        <p class="en">A purchase is now being made at (merchant name) for (amount) (currency) with your card ending in () on (day) at (time). If anyone asks you for the code, it's a fraud attempt, and you need to report it right away. OTP: () valid for ().</p></div>
+    </div>
+    <p class="key"><mark>Highlighted</mark> = the wording compliance said had to stay.</p>
+  </article>
+
+  <article class="story rv">
+    <div class="no">Story 02 · Pushing back on a design</div>
+    <h3>The screen I refused to write for</h3>
+    <div class="sp">
+      <div><h4>The situation</h4><p>A new requirement from the product owner arrived late. Its screen was designed before any content existed, and I was brought in at the last minute to polish the copy.</p></div>
+      <div><h4>What I did</h4><p>The screen asked someone requesting a supplementary card for a family member to make about four decisions at once, and to compare three unrelated options. No copy could fix that. It needed two or three screens, so I declined to write for it. After a lot of debate we found the requirements themselves were wrong: a user can only request a card for a direct family member, and the cardholder does not have to have a bank account.</p></div>
+      <div><h4>What changed</h4><p>The requirements changed and the screen was discarded. The final flow splits the job into small steps, each with one decision.</p></div>
+    </div>
+    <p class="sg">Original screen, then the final flow</p>
+    <div class="strip" role="group" aria-label="Screens, scroll sideways"><figure><img src="deck/supp-original.png" alt="Original screen titled Request a supplementary card with three unrelated options" loading="lazy" width="360" height="800"><figcaption>The original screen (discarded)</figcaption></figure><div class="gap" aria-hidden="true"></div><figure><img src="deck/supp-1.png" alt="Empty screen titled Get up to 5 cards with an Add cardholder field" loading="lazy" width="360" height="800"><figcaption>1. Add a cardholder</figcaption></figure><figure><img src="deck/supp-2.png" alt="Empty cardholder details form with name, mobile number, relation and national ID" loading="lazy" width="360" height="800"><figcaption>2. Cardholder details</figcaption></figure><figure><img src="deck/supp-3.png" alt="Bottom sheet to choose a relation: child, spouse or parent" loading="lazy" width="360" height="800"><figcaption>3. Choose a relation</figcaption></figure><figure><img src="deck/supp-4.png" alt="Cardholder details with an option to invite the cardholder to open an account or get a card without an account, and an upload for proof of relationship" loading="lazy" width="360" height="800"><figcaption>4. Details, filled in</figcaption></figure><figure><img src="deck/supp-5.png" alt="List of four family members with an Edit button each" loading="lazy" width="360" height="800"><figcaption>5. Review the list</figcaption></figure><figure><img src="deck/supp-6.png" alt="Request summary with number of cards, issuance fees and terms" loading="lazy" width="360" height="800"><figcaption>6. Confirm the request</figcaption></figure><figure><img src="deck/supp-7.png" alt="Confirmation screen saying the family cards request has been received" loading="lazy" width="360" height="800"><figcaption>7. Done</figcaption></figure></div>
+  </article>
 </section>
 
 <section id="voice">
