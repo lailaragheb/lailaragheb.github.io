@@ -146,6 +146,17 @@ section{padding-block:64px}
 .skills{display:flex;flex-wrap:wrap;gap:8px;align-content:flex-start}
 .skills span{border:1px solid var(--line);background:var(--card);padding:6px 12px;border-radius:12px;font-size:14px}.sk{display:flex;flex-direction:column;gap:22px;min-width:0}.sk h4{margin:0 0 10px;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;color:var(--mute)}.avail{display:flex;gap:12px;align-items:flex-start;border:1.5px solid var(--accent);border-radius:16px;padding:14px 18px;margin-top:22px;font-weight:700;font-size:17px;line-height:1.45;background:var(--card)}.avail:before{content:"";flex:none;width:10px;height:10px;border-radius:50%;background:var(--hot);margin-top:8px}.edu{font-size:14px;color:var(--mute);margin:0}.wsub{max-width:46em;color:var(--mute);margin:-8px 0 26px;font-size:17px}.cav{margin:14px 0 0;font-size:clamp(17px,2vw,20px);opacity:.92;max-width:34em}
 /* decisions */
+.dcard{display:grid;grid-template-columns:1.1fr 1fr;gap:28px 40px;align-items:center;border:1px solid var(--line);background:var(--card);border-radius:22px;padding:clamp(22px,4vw,40px);text-decoration:none;color:inherit;transition:border-color .2s,transform .2s}
+.dcard:hover{border-color:var(--accent);transform:translateY(-2px)}
+.dcard h2{font-size:clamp(28px,4vw,44px);font-weight:800;margin:10px 0 12px}
+.dcard .dh p{margin:0;color:var(--mute);font-size:16px;line-height:1.6;max-width:46ch}
+.dl{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+.dl li{display:grid;grid-template-columns:auto 1fr;gap:2px 14px;border:1px solid var(--line);background:var(--bg);border-radius:16px;padding:16px 18px}
+.dl span{grid-row:span 2;font-family:var(--mono);font-size:13px;color:var(--accent);padding-top:3px}
+.dl b{font-family:var(--display);font-size:19px;line-height:1.25}
+.dl i{font-style:normal;font-size:13px;color:var(--mute)}
+.dgo{grid-column:1/-1;justify-self:start}
+@media(max-width:860px){.dcard{grid-template-columns:1fr}}
 /* contact */
 .contact{background:var(--accent);color:var(--accent-fg);border-radius:26px;padding:clamp(28px,6vw,72px);--l:var(--accent-fg)}
 .contact h2{font-size:clamp(38px,7vw,88px);font-weight:800}
@@ -216,9 +227,14 @@ dialog li{margin-bottom:4px}
 </section>
 
 <section id="decisions">
-  <div class="sh"><h2 class="rv">Where content changed the decision</h2><span class="lab">Constraints · Pushback</span></div>
-  <p class="wsub">Two moments where I worked around a regulation, and where I pushed back on a design. Client names withheld.</p>
-  <p class="rv"><a class="btn p" href="decisions.html">Read the two stories →</a></p>
+  <a class="dcard rv" href="decisions.html">
+    <div class="dh"><span class="lab">Constraints · Pushback</span><h2>Where content changed the decision</h2><p>Two moments where I worked around a regulation, and where I pushed back on a design. Client names withheld.</p></div>
+    <ol class="dl">
+      <li><span>01</span><b>A fraud warning that still sounds like the bank</b><i>Working within compliance</i></li>
+      <li><span>02</span><b>The screen I refused to write for</b><i>Pushing back on a design</i></li>
+    </ol>
+    <span class="btn p dgo">Read the two stories →</span>
+  </a>
 </section>
 
 <section id="voice">
